@@ -52,8 +52,6 @@ head(nukes)
 FH <- read_csv("Data/country-position-nuclear-weapons.csv", show_col_types = FALSE)
 glimpse(FH)
 head(FH)
-
-
 ```
 
 
