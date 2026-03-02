@@ -9,9 +9,51 @@ output:
 
 
 
-## Project thoughts
+## Final Milestone 1
 
 I am interested in exploring data related to...
 nuclear testing, and potentially how many people were diangoised with cancer or health effects from U.S. testing in the Marshall Islands.
 
 If that's too specific something just related to proliferation or nonproliferation would be interesting to! 
+
+
+## Final Milestone 2 
+
+Research Question: Are democratic or authoritarian regimes more likely to pursue nuclear weapons programs?
+
+Hypothesis: Authoritarian countries are more likely than democratic countries to pursue nuclear weapons programs. In an international system where the U.S. and Russia are head-to-head with their nuclear stockpile, democratic nations largely possess more nuclear arsenals in the post-Cold War landscape than authoritarian regimes all together.This is shaped by decades of competition and security concerns. However, China is now on the rise, expanding its arsenal faster than any other country. Meanwhile, several countries, including South Africa and Argentina, voluntarily gave up their nuclear pursuit in the 1990s, raising the question on whether regime type may determine nuclear capabilities. In general, democratic governments are more likely to be beholden to public accountability and legislative oversight, allowing more transparency, supervising and monitoring of activities the President conducts. These constraints can limit excessive military spending and raise the political cost of pursuing large nuclear arsenals. Conversely, authoritarian governments have fewer domestic constraints due to censorship (news accountability, take North Korea for example) or have a personalist dictator (Russia). A regime like this then may be able to leverage absolute  military power as a means to brand nuclear determination as regime survival. 
+
+My explanatory variable is regime type. This variable is measured by categorizing countries as democratic or authoritarian using my Freedom House data. It contains the country, year, and its score from the Freedom House on whether its Free, Partly Free, or Not Free. Countries that are "Free" will be represented with a 1, "Partly Free" a 1, and "Not Free" 0. 
+
+My outcome variable is whether a country is pursuing a nuclear weapons program in a given year. This will be measured from my Our World in Data set which shows:
+0 = not considering
+1 = considering
+2 = pursuing
+3 = possessing 
+
+	I will re-code it into a binary variable where nuclear_program = 1 if  ≥ 2, meaning a country is pursuing or possessing. Nuclear_program = 0 if < 2, meaning a country did not pursue a nuclear weapons program. (##Hopefully this makes sense)
+A pattern in the data that would support my hypothesis would be if countries with low scores, such as a 1 or 0, are more likely to have a nuclear program than countries with a 2. My hypothesis will be disproved if democratic and authoritarian regimes pursue nuclear programs at similar rates, or if democratic countries are more likely to pursue nuclear weapons programs than authoritarian ones. 
+
+```{r}
+library(readr)
+library(dplyr)
+library(tidyverse)
+```
+
+```{r}
+
+nukes <- read_csv("Data/nuclear-warhead-inventories.csv", show_col_types = FALSE)
+glimpse(nukes)
+head(nukes)
+```
+
+```{r}
+
+FH <- read_csv("Data/country-position-nuclear-weapons.csv", show_col_types = FALSE)
+glimpse(FH)
+head(FH)
+
+
+```
+
+
