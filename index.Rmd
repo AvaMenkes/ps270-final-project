@@ -54,7 +54,5 @@ glimpse(FH)
 head(FH)
 ```
 
-```{r}
-getwd()
-```
+
 
