@@ -45,6 +45,8 @@ library(tidyverse)
 nukes <- read_csv("Data/nuclear-warhead-inventories.csv", show_col_types = FALSE)
 glimpse(nukes)
 head(nukes)
+
+nukes
 ```
 
 ```{r}
@@ -52,11 +54,12 @@ head(nukes)
 FH <- read_csv("Data/country-position-nuclear-weapons.csv", show_col_types = FALSE)
 glimpse(FH)
 head(FH)
+
+FH
 ```
 
 ```{r}
 rmarkdown::render("index.Rmd", output_dir = "docs")
-
 ```
 
 
