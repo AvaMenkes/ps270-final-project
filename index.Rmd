@@ -7,32 +7,16 @@ output:
     self_contained: false
 ---
 
-
-
-## I am interested in...
-
-I am interested in exploring data related to...
-nuclear testing, and potentially how many people were diangoised with cancer or health effects from U.S. testing in the Marshall Islands.
-
-If that's too specific something just related to proliferation or nonproliferation would be interesting to! 
-
-
-## Final Milestone 2 
-
 Research Question: Are democratic or authoritarian regimes more likely to pursue nuclear weapons programs?
 
-Hypothesis: Authoritarian countries are more likely than democratic countries to pursue nuclear weapons programs. In an international system where the U.S. and Russia are head-to-head with their nuclear stockpile, democratic nations largely possess more nuclear arsenals in the post-Cold War landscape than authoritarian regimes all together.This is shaped by decades of competition and security concerns. However, China is now on the rise, expanding its arsenal faster than any other country. Meanwhile, several countries, including South Africa and Argentina, voluntarily gave up their nuclear pursuit in the 1990s, raising the question on whether regime type may determine nuclear capabilities. In general, democratic governments are more likely to be beholden to public accountability and legislative oversight, allowing more transparency, supervising and monitoring of activities the President conducts. These constraints can limit excessive military spending and raise the political cost of pursuing large nuclear arsenals. Conversely, authoritarian governments have fewer domestic constraints due to censorship (news accountability, take North Korea for example) or have a personalist dictator (Russia). A regime like this then may be able to leverage absolute  military power as a means to brand nuclear determination as regime survival. 
+Hypothesis: Authoritarian countries are more likely than democratic countries to pursue nuclear weapons programs. In an international system where the U.S. and Russia are head-to-head with their nuclear stockpile, democratic nations largely possess more nuclear arsenals in the post-Cold War landscape than authoritarian regimes all together. This is shaped by decades of competition and security concerns. However, China is now on the rise, expanding its arsenal faster than any other country. Meanwhile, several countries, including South Africa and Argentina, voluntarily gave up their nuclear pursuit in the 1990s, raising the question on whether regime type may determine nuclear capabilities. In general, democratic governments are more likely to be beholden to public accountability and legislative oversight, allowing more transparency, supervising and monitoring of activities the President conducts. These constraints can limit excessive military spending and raise the political cost of pursuing large nuclear arsenals. Conversely, authoritarian governments have fewer domestic constraints due to censorship (news accountability, take North Korea for example) or have a personalist dictator (Russia). A regime like this then may be able to leverage absolute  military power as a means to brand nuclear determination as regime survival. 
 
-My explanatory variable is regime type. This variable is measured by categorizing countries as democratic or authoritarian using my Freedom House data. It contains the country, year, and its score from the Freedom House on whether its Free, Partly Free, or Not Free. Countries that are "Free" will be represented with a 1, "Partly Free" a 1, and "Not Free" 0. 
+My explanatory variable is regime type. This variable is measured by Our World in Data on political regimes, which organizes countries on a scale of 0-3 to range autocracies and liberal democracies. I've recorded this into a binary variable where countries with values of 2 or higher are liberal democracies and are coded as 1, and autocracies are coded with values of 1 or lower as 0. 
 
-My outcome variable is whether a country is pursuing a nuclear weapons program in a given year. This will be measured from my Our World in Data set which shows:
-0 = not considering
-1 = considering
-2 = pursuing
-3 = possessing 
+My outcome variable is whether a country is pursuing a nuclear weapons program in a given year. This is measured using an Our World in Data dataset where:
+0 = not considering; 1 = considering; 2 = pursuing; 3 = possessing
 
-	I will re-code it into a binary variable where nuclear_program = 1 if  ≥ 2, meaning a country is pursuing or possessing. Nuclear_program = 0 if < 2, meaning a country did not pursue a nuclear weapons program. (##Hopefully this makes sense)
-A pattern in the data that would support my hypothesis would be if countries with low scores, such as a 1 or 0, are more likely to have a nuclear program than countries with a 2. My hypothesis will be disproved if democratic and authoritarian regimes pursue nuclear programs at similar rates, or if democratic countries are more likely to pursue nuclear weapons programs than authoritarian ones. 
+A pattern in the data that would support my hypothesis would be if autocratic countries, coded with a 0, are more likely to have a nuclear program than countries with a 1. My hypothesis will be disproved if democratic and authoritarian regimes pursue nuclear programs at similar rates, or if democratic countries are more likely to pursue nuclear weapons programs than authoritarian ones. 
 
 ```{r}
 library(readr)
@@ -42,24 +26,91 @@ library(tidyverse)
 
 ```{r}
 
-nukes <- read_csv("Data/nuclear-warhead-inventories.csv", show_col_types = FALSE)
-glimpse(nukes)
-head(nukes)
-
-nukes
+nuclear_data <- read_csv("Data/country-position-nuclear-weapons.csv", show_col_types = FALSE) |>
+  rename(nuclear_status = status) |>
+  mutate(
+    nuclear_program = ifelse(nuclear_status >= 2, 1, 0)
+  )
+knitr::kable(head(nuclear_data))
+nuclear_data
 ```
+
+
 
 ```{r}
 
-FH <- read_csv("Data/country-position-nuclear-weapons.csv", show_col_types = FALSE)
-glimpse(FH)
-head(FH)
+freedom_data <- read_csv("Data/political-regime.csv")
+glimpse(freedom_data)
+head(freedom_data)
 
-FH
+
+knitr::kable(head(freedom_data))
+freedom_data
+```
+
+
+## Data cleaning 
+
+```{r}
+freedom_data <- freedom_data |>
+  rename(regime = regime_row_owid)
+
+
 ```
 
 ```{r}
-rmarkdown::render("index.Rmd", output_dir = "docs")
+freedom_data <- freedom_data |>
+  mutate(
+    regime_binary = case_when(
+      regime >= 2 ~ 1,   
+      regime <= 1 ~ 0    
+    ))
+
+nuclear_data <- nuclear_data |>
+  mutate(
+    nuclear_program = ifelse(nuclear_status >= 2, 1, 0)
+  )
 ```
+
+```{r}
+combine_data <- freedom_data |>
+  inner_join(nuclear_data, by = c("code", "year"))
+
+```
+## Visuals
+
+```{r}
+plot_data <- combine_data |>
+  group_by(regime_binary) |>
+  summarize(
+    prop_nuclear = mean(nuclear_program, na.rm = TRUE)
+  )
+
+
+
+ggplot(plot_data, aes(x = factor(regime_binary), y = prop_nuclear, fill = factor(regime_binary))) +
+  geom_col(width = 0.5) +
+  geom_text(aes(label = round(prop_nuclear, 2)), vjust = -0.5) +
+  scale_x_discrete(labels = c("Authoritarian", "Democracy")) +
+  scale_fill_manual(
+    values = c("0" = "indianred1", "1" = "steelblue1"),
+    labels = c("Autocracy", "Democracy"),
+    name = "Regime Type"
+  ) +
+  labs(
+    title = "Democracies vs Authoritarian nuclear weapons",
+    subtitle = "Proportion of country-years pursuing or possessing nuclear weapons",
+    x = "Regime Type",
+    y = "Proportion"
+  ) 
+```
+
+
+Interpretation: 
+
+Each observation in the data sets represents a country in a specific year and the proportions in the graph reflect how often countries of each regime type have nuclear weapons across all observed years. Democratic countries show a higher proportion of weapons, sitting at 8%, compared to autocratic countries which are at 4%. Therefore, democratic regimes are about twice as likely as autocracies to pursue or possess nuclear weapons, which contradicts my hypothesis. Next, it might be helpful to see the relationship change overtime using a scatter plot and explore confounders. 
+
+
+Note: Only 749 out of almost 21,000 countries have nuclear weapons, making the sample extremely low. Most countries never pursue nuclear weapons during most years. 
 
 
