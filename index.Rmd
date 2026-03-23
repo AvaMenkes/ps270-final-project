@@ -25,7 +25,6 @@ library(tidyverse)
 ```
 
 ```{r}
-
 nuclear_data <- read_csv("Data/country-position-nuclear-weapons.csv", show_col_types = FALSE) |>
   rename(nuclear_status = status) |>
   mutate(
