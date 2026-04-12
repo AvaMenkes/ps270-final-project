@@ -112,4 +112,29 @@ Each observation in the data sets represents a country in a specific year and th
 
 Note: Only 749 out of almost 21,000 countries have nuclear weapons, making the sample extremely low. Most countries never pursue nuclear weapons during most years. 
 
+## Final milestone 4
 
+```{r}
+overtime_data <- combine_data |>
+  group_by(year, regime_binary) |>
+  summarize(
+    prop_nuclear = mean(nuclear_program, na.rm = TRUE)
+  )
+
+ggplot(overtime_data, aes(x = year, y = prop_nuclear, color = factor(regime_binary))) +
+  geom_line() +
+  scale_color_manual(
+    values = c("0" = "indianred1", "1" = "steelblue1"),
+    labels = c("Autocracy", "Democracy"), name = "Regime Type" ) +
+  labs(
+    title = "Nuclear weapons pursuit over Time by regime type",
+    x = "Year",y = "Proportion Pursuing/Possessing")
+```
+
+Analysis:
+
+This visualization is super interesting and shows that democratic countries had a higher proportion of nuclear weapon programs from the 1940s to the 1960s where the proportion sits at nearly 20%. Because the data is structured by country-year, this means that about 20% of democratic country-year observations (or 1 in 5 democratic countries in a given year ) were pursuing or possessing nuclear weapons during this period. This pattern reflects the early nuclear development of countries such as the U.S., U.K., and France during and immediately after WWII. 
+
+This gap has changed however. From the 1970s onward, the proportion of democratic countries pursuing or possessing nuclear weapons slowed down, whereas authoritarian regimes steadily increased pursuit or possession. By the 1990s and 2000s, the two regime types overlap, and in some years following authoritarian regimes actually overcome democracies in nuclear possession or pursuit. This is likely due to the end of the Cold War where democracies stopped expanding and autocracies felt the need to now rely on deterrence including North Korea, Pakistan, and Iran. 
+
+Although democracies were historically more likely to develop nuclear weapons and may possess more today, autocracies have become more active in the nuclear-sphere. Therefore my initial interpretation may be changed. The reason why democracies appear more likely to possess or pursue nuclear weapons is driven by historical cases rather than a consistent pattern drawn into contemporary politics. The relationship between regime type and nuclear weapons program is not balanced and seems to depend more on time period. 
