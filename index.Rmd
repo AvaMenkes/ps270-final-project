@@ -38,13 +38,13 @@ A pattern in the data that would support my hypothesis would be if autocratic co
 
 ## Data 
 
-```{r print-code-1, re.label=knitr::all_labels(), echo = F, eval= T}
+```{r, echo = F}
 library(readr)
 library(dplyr)
 library(tidyverse)
 ```
 
-```{r print-code-2, re.label=knitr::all_labels(), echo = F, eval= T}
+```{r, echo = F}
 nuclear_data <- read_csv("Data/country-position-nuclear-weapons.csv", show_col_types = FALSE) |>
   rename(nuclear_status = status) |>
   mutate(
@@ -55,7 +55,7 @@ nuclear_data
 
 ```
 
-```{r print-code-3, re.label=knitr::all_labels(), echo = F, eval= T}
+```{r, echo = F}
 
 freedom_data <- read_csv("Data/political-regime.csv")
 
@@ -68,14 +68,14 @@ freedom_data
 
 #### Data cleaning 
 
-```{r print-code-4, re.label=knitr::all_labels(), echo = F, eval= T}
+```{r, echo = F}
 freedom_data <- freedom_data |>
   rename(regime = regime_row_owid)
 
 
 ```
 
-```{r print-code-5, re.label=knitr::all_labels(), echo = F, eval= T}
+```{r, echo = F}
 freedom_data <- freedom_data |>
   mutate(
     regime_binary = case_when(
@@ -89,7 +89,7 @@ nuclear_data <- nuclear_data |>
   )
 ```
 
-```{r print-code-6, re.label=knitr::all_labels(), echo = F, eval= T}
+```{r, echo = F}
 combine_data <- freedom_data |>
   inner_join(nuclear_data, by = c("code", "year"))
 
@@ -99,7 +99,7 @@ combine_data <- freedom_data |>
 
 #### Figure A Bar Plot 
 
-```{r print-code-7, re.label=knitr::all_labels(), echo = F, eval= T}
+```{r, echo = F}
 plot_data <- combine_data |>
   group_by(regime_binary) |>
   summarize(
@@ -107,8 +107,7 @@ plot_data <- combine_data |>
   )
 
 
-
-ggplot(plot_data, aes(x = factor(regime_binary), y = prop_nuclear, fill = factor(regime_binary))) +
+bar <- ggplot(plot_data, aes(x = factor(regime_binary), y = prop_nuclear, fill = factor(regime_binary))) +
   geom_col(width = 0.5) +
   geom_text(aes(label = round(prop_nuclear, 2)), vjust = -0.5) +
   scale_x_discrete(labels = c("Authoritarian", "Democracy")) +
@@ -123,7 +122,11 @@ ggplot(plot_data, aes(x = factor(regime_binary), y = prop_nuclear, fill = factor
     x = "Regime Type",
     y = "Proportion"
   ) 
+
+ggsave("bar.png", plot = bar)
 ```
+
+![Bar Plot](bar.png)
 
 
 This visualization serves as a broad overview. Each observation in the data sets represents a country in a specific year and the proportions in the graph reflect how often countries of each regime type have nuclear weapons across all observed years. Democratic countries show a higher proportion of weapons, sitting at 8%, compared to autocratic countries which are at 4%. Therefore, democratic regimes are about twice as likely as autocracies to pursue or possess nuclear weapons.
@@ -134,14 +137,14 @@ Note: Only 749 out of almost 21,000 countries have nuclear weapons, making the s
 
 #### Figure B Time Trend Plot
 
-```{r print-code-8, re.label=knitr::all_labels(), echo = F, eval= T}
+```{r, echo = F}
 overtime_data <- combine_data |>
   group_by(year, regime_binary) |>
   summarize(
     prop_nuclear = mean(nuclear_program, na.rm = TRUE)
   )
 
-ggplot(overtime_data, aes(x = year, y = prop_nuclear, color = factor(regime_binary))) +
+time_plot <- ggplot(overtime_data, aes(x = year, y = prop_nuclear, color = factor(regime_binary))) +
   geom_line() +
   scale_color_manual(
     values = c("0" = "indianred1", "1" = "steelblue1"),
@@ -162,13 +165,13 @@ Although democracies were historically more likely to develop nuclear weapons an
 
 The next two visualizations 
 
-```{r print-code-9, re.label=knitr::all_labels(), echo = F, eval= T}
+```{r, echo = F}
 selected_countries <- combine_data |>
   filter(entity.x %in% c(
     "China", "Iran", "North Korea", "United States","Russia","Iraq","Germany","United Kingdom", "France", "Argentina"
   ))
 
-ggplot(selected_countries, aes(x = year, y = nuclear_status, color = entity.x)) +
+weapons_trajec <- ggplot(selected_countries, aes(x = year, y = nuclear_status, color = entity.x)) +
   geom_line(size = 1) +
   labs(
     title = "Nuclear Weapons Trajectories by Country",
@@ -177,7 +180,10 @@ ggplot(selected_countries, aes(x = year, y = nuclear_status, color = entity.x)) 
     y = "Nuclear Status",
     color = "Country"
   )
+
+ggsave("weapons_trajec.png", plot = weapons_trajec)
 ```
+
 
 For this visualization, I picked three democracies that have nuclear weapons and two democracies (Germany and Japan) that could pursue a nuclear program but has not. Conversely, I chose five authoritarian countries. Russia, China, and North Korea all have a nuclear program; however, I picked Iran and Iraq because both of which have pursued or actively are pursuing a nuclear program more recently. Very early, the U.S., U.K., France, and Russia reached 3, or possession. China, North Korea, Iran, and Iraq show later nuclear trajectories in more of a contemporary era. 
 
@@ -191,13 +197,13 @@ Let's take India and Pakistan for example.
 
 #### Figure D India and Pakistan Case
 
-```{r print-code-10, re.label=knitr::all_labels(), echo = F, eval= T}
+```{r, echo = F}
 selected_countries <- combine_data |>
   filter(entity.x %in% c(
     "India", "Pakistan"
   ))
 
-ggplot(selected_countries, aes(x = year, y = nuclear_status, color = entity.x)) +
+India_Pakistan <- ggplot(selected_countries, aes(x = year, y = nuclear_status, color = entity.x)) +
   geom_line(size = 1) +
   labs(
     title = "Nuclear Weapons Trajectories by Country",
@@ -223,7 +229,7 @@ The coefficient on regime type of not equal to zero, meaning there is a relation
 
 
 
-```{r print-code-11, re.label=knitr::all_labels(), echo = F, eval= T}
+```{r, echo = F}
 model1 <- lm(nuclear_program ~ regime_binary, data = combine_data)
 confint(model1)
 summary(model1)
@@ -261,13 +267,10 @@ This project relies on observational country-year data, the findings should not 
 Lastly, existing nuclear powers may no longer want to expand their arsenals at this time due to the Threat on the Non-Proliferation of Nuclear Weapons (NPT), mutual assured destruction, moratoriums, or other threats such as UN sanctions. Both the U.S. and Russia maintain large nuclear stockpiles but are constrained by the NPT and global deterrence structures. This stagnation among nuclear club powers may make newer nuclear pursuits by emerging authoritarian states such as Iran more important than aggregate possession rates alone. 
 
 
-
-
 AI DISCLAIMER: 
 
 For figure C, I used artificial intelligence to help design the ggplot, specifically helping me set up the entity.x variable and figuring out way to organize colors. Both datasets had a country-name column called "entity" and I joined them together. Entity.X is the country name from freedom_data or the left side of join. 
 
+```{r print-code, ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
 
-
-
-
+```
