@@ -155,10 +155,10 @@ time_plot <- ggplot(overtime_data, aes(x = year, y = prop_nuclear, color = facto
     x = "Year",y = "Proportion Pursuing/Possessing")
 
 
-ggsave("time_plot.png", plot = bar)
+ggsave("time_plot.png", plot = time_plot)
 ```
 
-![Time Plot](time_plot.png)
+![Line Plot](time_plot.png)
 
 This visualization shows that democratic countries had a higher proportion of nuclear weapon programs from the 1940s to the 1960s where the proportion sits at nearly 20%. Because the data is structured by country-year, this means that about 20% of democratic country-year observations (or 1 in 5 democratic countries in a given year ) were pursuing or possessing nuclear weapons during this period. This pattern reflects the early nuclear development of countries such as the U.S., U.K., and France during and immediately after WWII.
 
@@ -218,7 +218,7 @@ India_Pakistan <- ggplot(selected_countries, aes(x = year, y = nuclear_status, c
     color = "Country"
   )
 
-ggsave("India_Pakistan.png", plot = bar)
+ggsave("India_Pakistan.png", plot = India_Pakistan)
 ```
 ![Line Plot](India_Pakistan.png)
 

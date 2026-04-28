@@ -1723,8 +1723,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </div>
 <figure>
-<img src="time_plot.png" alt="Time Plot" />
-<figcaption aria-hidden="true">Time Plot</figcaption>
+<img src="time_plot.png" alt="Line Plot" />
+<figcaption aria-hidden="true">Line Plot</figcaption>
 </figure>
 <p>This visualization shows that democratic countries had a higher proportion of nuclear weapon programs from the 1940s to the 1960s where the proportion sits at nearly 20%. Because the data is structured by country-year, this means that about 20% of democratic country-year observations (or 1 in 5 democratic countries in a given year ) were pursuing or possessing nuclear weapons during this period. This pattern reflects the early nuclear development of countries such as the U.S., U.K., and France during and immediately after WWII.</p>
 <p>This gap has changed however. From the 1970s onward, the proportion of democratic countries pursuing or possessing nuclear weapons slowed down, whereas authoritarian regimes steadily increased pursuit or possession. By the 1990s and 2000s, the two regime types overlap, and in some years following authoritarian regimes actually overcome democracies in nuclear possession or pursuit. This is likely due to the end of the Cold War where democracies stopped expanding and autocracies felt the need to now rely on deterrence including North Korea, Pakistan, and Iran.</p>
@@ -1902,7 +1902,7 @@ The R-squared value os 0.0068 shows that regime type alone only explains a small
 <span>    x <span class='op'>=</span> <span class='st'>"Year"</span>,y <span class='op'>=</span> <span class='st'>"Proportion Pursuing/Possessing"</span><span class='op'>)</span></span>
 <span></span>
 <span></span>
-<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span><span class='st'>"time_plot.png"</span>, plot <span class='op'>=</span> <span class='va'>bar</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span><span class='st'>"time_plot.png"</span>, plot <span class='op'>=</span> <span class='va'>time_plot</span><span class='op'>)</span></span>
 <span><span class='va'>selected_countries</span> <span class='op'>&lt;-</span> <span class='va'>combine_data</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>entity.x</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
 <span>    <span class='st'>"China"</span>, <span class='st'>"Iran"</span>, <span class='st'>"North Korea"</span>, <span class='st'>"United States"</span>,<span class='st'>"Russia"</span>,<span class='st'>"Iraq"</span>,<span class='st'>"Germany"</span>,<span class='st'>"United Kingdom"</span>, <span class='st'>"France"</span>, <span class='st'>"Argentina"</span></span>
@@ -1934,7 +1934,7 @@ The R-squared value os 0.0068 shows that regime type alone only explains a small
 <span>    color <span class='op'>=</span> <span class='st'>"Country"</span></span>
 <span>  <span class='op'>)</span></span>
 <span></span>
-<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span><span class='st'>"India_Pakistan.png"</span>, plot <span class='op'>=</span> <span class='va'>bar</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsave.html'>ggsave</a></span><span class='op'>(</span><span class='st'>"India_Pakistan.png"</span>, plot <span class='op'>=</span> <span class='va'>India_Pakistan</span><span class='op'>)</span></span>
 <span><span class='va'>model1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>nuclear_program</span> <span class='op'>~</span> <span class='va'>regime_binary</span>, data <span class='op'>=</span> <span class='va'>combine_data</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span><span class='op'>(</span><span class='va'>model1</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>model1</span><span class='op'>)</span></span>
