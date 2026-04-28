@@ -28,7 +28,7 @@ Authoritarian countries are more likely than democratic countries to pursue nucl
 
 This study uses cross-sectional time-series observational data.
 
-My explanatory variable is regime type. This variable is measured by Freedom House Data on political regimes, which organizes countries on a scale of 0-3 to range autocracies and liberal democracies. I've recorded this into a binary variable where countries with values of 2 or higher are liberal democracies and are coded as 1, and autocracies are coded with values of 1 or lower as 0. 
+My explanatory variable is regime type. This variable is measured by Our World Data on political regimes, which organizes countries on a scale of 0-3 to range autocracies and liberal democracies. I've recorded this into a binary variable where countries with values of 2 or higher are liberal democracies and are coded as 1, and autocracies are coded with values of 1 or lower as 0. 
 
 My outcome variable is whether a country is pursuing a nuclear weapons program in a given year. This is measured using an Our World in Data dataset where:
 0 = not considering; 1 = considering; 2 = pursuing; 3 = possessing
@@ -38,13 +38,13 @@ A pattern in the data that would support my hypothesis would be if autocratic co
 
 ## Data 
 
-```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
+```{r print-code-1, re.label=knitr::all_labels(), echo = F, eval= T}
 library(readr)
 library(dplyr)
 library(tidyverse)
 ```
 
-```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
+```{r print-code-2, re.label=knitr::all_labels(), echo = F, eval= T}
 nuclear_data <- read_csv("Data/country-position-nuclear-weapons.csv", show_col_types = FALSE) |>
   rename(nuclear_status = status) |>
   mutate(
@@ -55,7 +55,7 @@ nuclear_data
 
 ```
 
-```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
+```{r print-code-3, re.label=knitr::all_labels(), echo = F, eval= T}
 
 freedom_data <- read_csv("Data/political-regime.csv")
 
@@ -68,14 +68,14 @@ freedom_data
 
 #### Data cleaning 
 
-```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
+```{r print-code-4, re.label=knitr::all_labels(), echo = F, eval= T}
 freedom_data <- freedom_data |>
   rename(regime = regime_row_owid)
 
 
 ```
 
-```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
+```{r print-code-5, re.label=knitr::all_labels(), echo = F, eval= T}
 freedom_data <- freedom_data |>
   mutate(
     regime_binary = case_when(
@@ -89,7 +89,7 @@ nuclear_data <- nuclear_data |>
   )
 ```
 
-```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
+```{r print-code-6, re.label=knitr::all_labels(), echo = F, eval= T}
 combine_data <- freedom_data |>
   inner_join(nuclear_data, by = c("code", "year"))
 
@@ -99,7 +99,7 @@ combine_data <- freedom_data |>
 
 #### Figure A Bar Plot 
 
-```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
+```{r print-code-7, re.label=knitr::all_labels(), echo = F, eval= T}
 plot_data <- combine_data |>
   group_by(regime_binary) |>
   summarize(
@@ -134,7 +134,7 @@ Note: Only 749 out of almost 21,000 countries have nuclear weapons, making the s
 
 #### Figure B Time Trend Plot
 
-```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
+```{r print-code-8, re.label=knitr::all_labels(), echo = F, eval= T}
 overtime_data <- combine_data |>
   group_by(year, regime_binary) |>
   summarize(
@@ -162,7 +162,7 @@ Although democracies were historically more likely to develop nuclear weapons an
 
 The next two visualizations 
 
-```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
+```{r print-code-9, re.label=knitr::all_labels(), echo = F, eval= T}
 selected_countries <- combine_data |>
   filter(entity.x %in% c(
     "China", "Iran", "North Korea", "United States","Russia","Iraq","Germany","United Kingdom", "France", "Argentina"
@@ -185,11 +185,13 @@ Germany is especially interesting because after WWII the country went through a 
 
 Overall, pursuing nuclear weapons is not only regime type, or historical time period, but also political transitions or security incentives.  
 
+Note: Reminder I've turned my data into binary variables where countries with values of 2 or higher are liberal democracies and are coded as 1, and autocracies are coded with values of 1 or lower as 0. My outcome variable, whether a country is pursuing a nuclear weapons program in a given yearm is measured where 0 = not considering; 1 = considering; 2 = pursuing; 3 = possessing. 
+
 Let's take India and Pakistan for example. 
 
 #### Figure D India and Pakistan Case
 
-```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
+```{r print-code-10, re.label=knitr::all_labels(), echo = F, eval= T}
 selected_countries <- combine_data |>
   filter(entity.x %in% c(
     "India", "Pakistan"
@@ -208,6 +210,7 @@ ggplot(selected_countries, aes(x = year, y = nuclear_status, color = entity.x)) 
 
 
 India and Pakistan's nuclear arsenals were compiled much less because of regime type, but primarily because of regional competition. India's early pursuit was shaped by China's rise after the 1962 Sino-Indian War while Pakistan's accelerated in response to military humiliation like the 1971 war and border disputes with India. This shows the complexity behind the causal relationship between the outcome and explanatory variable. 
+
 ## Regression Analysis
 
 #### Null hypothesis:
@@ -220,7 +223,7 @@ The coefficient on regime type of not equal to zero, meaning there is a relation
 
 
 
-```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
+```{r print-code-11, re.label=knitr::all_labels(), echo = F, eval= T}
 model1 <- lm(nuclear_program ~ regime_binary, data = combine_data)
 confint(model1)
 summary(model1)
@@ -232,7 +235,7 @@ knitr::kable(round(summary(model1)$coefficients, 3),
 
 
 
-#### Intercept, Coefficient, and P-Value
+#### Intercept, Coefficient, P-Value, R sqaured 
 
 The regression results estimate the relationship between regime type the likelihood of pursuing or possessing nuclear weapons. The intercept is about 0.039 which shows that autocratic countries have about a 3.9% probability of having a nuclear weapons program.
 

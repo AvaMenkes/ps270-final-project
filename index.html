@@ -1559,182 +1559,23 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 0 = not considering; 1 = considering; 2 = pursuing; 3 = possessing</p>
 <p>A pattern in the data that would support my hypothesis would be if autocratic countries, coded with a 0, are more likely to have a nuclear program than countries with a 1. My hypothesis will be disproved if democratic and authoritarian regimes pursue nuclear programs at similar rates, or if democratic countries are more likely to pursue nuclear weapons programs than authoritarian ones.</p>
 <h2 id="data">Data</h2>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">entity</th>
-<th style="text-align: left;">code</th>
-<th style="text-align: right;">year</th>
-<th style="text-align: right;">nuclear_status</th>
-<th style="text-align: right;">nuclear_program</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Afghanistan</td>
-<td style="text-align: left;">AFG</td>
-<td style="text-align: right;">1938</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Afghanistan</td>
-<td style="text-align: left;">AFG</td>
-<td style="text-align: right;">1939</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Afghanistan</td>
-<td style="text-align: left;">AFG</td>
-<td style="text-align: right;">1940</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Afghanistan</td>
-<td style="text-align: left;">AFG</td>
-<td style="text-align: right;">1941</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Afghanistan</td>
-<td style="text-align: left;">AFG</td>
-<td style="text-align: right;">1942</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Afghanistan</td>
-<td style="text-align: left;">AFG</td>
-<td style="text-align: right;">1943</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-</tbody>
-</table>
-<pre><code># A tibble: 21,328 × 5
-   entity      code   year nuclear_status nuclear_program
-   &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt;          &lt;dbl&gt;           &lt;dbl&gt;
- 1 Afghanistan AFG    1938              0               0
- 2 Afghanistan AFG    1939              0               0
- 3 Afghanistan AFG    1940              0               0
- 4 Afghanistan AFG    1941              0               0
- 5 Afghanistan AFG    1942              0               0
- 6 Afghanistan AFG    1943              0               0
- 7 Afghanistan AFG    1944              0               0
- 8 Afghanistan AFG    1945              0               0
- 9 Afghanistan AFG    1946              0               0
-10 Afghanistan AFG    1947              0               0
-# ℹ 21,318 more rows</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">entity</th>
-<th style="text-align: left;">code</th>
-<th style="text-align: right;">year</th>
-<th style="text-align: right;">regime_row_owid</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Afghanistan</td>
-<td style="text-align: left;">AFG</td>
-<td style="text-align: right;">1789</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Afghanistan</td>
-<td style="text-align: left;">AFG</td>
-<td style="text-align: right;">1790</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Afghanistan</td>
-<td style="text-align: left;">AFG</td>
-<td style="text-align: right;">1791</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Afghanistan</td>
-<td style="text-align: left;">AFG</td>
-<td style="text-align: right;">1792</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Afghanistan</td>
-<td style="text-align: left;">AFG</td>
-<td style="text-align: right;">1793</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Afghanistan</td>
-<td style="text-align: left;">AFG</td>
-<td style="text-align: right;">1794</td>
-<td style="text-align: right;">0</td>
-</tr>
-</tbody>
-</table>
-<pre><code># A tibble: 31,492 × 4
-   entity      code   year regime_row_owid
-   &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt;           &lt;dbl&gt;
- 1 Afghanistan AFG    1789               0
- 2 Afghanistan AFG    1790               0
- 3 Afghanistan AFG    1791               0
- 4 Afghanistan AFG    1792               0
- 5 Afghanistan AFG    1793               0
- 6 Afghanistan AFG    1794               0
- 7 Afghanistan AFG    1795               0
- 8 Afghanistan AFG    1796               0
- 9 Afghanistan AFG    1797               0
-10 Afghanistan AFG    1798               0
-# ℹ 31,482 more rows</code></pre>
-</div>
 <h4 id="data-cleaning">Data cleaning</h4>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
 <h2 id="results">Results</h2>
 <h4 id="figure-a-bar-plot">Figure A Bar Plot</h4>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="index_files/figure-html5/print-code-7-1.png" alt="" width="624" /></p>
-</div>
 <p>This visualization serves as a broad overview. Each observation in the data sets represents a country in a specific year and the proportions in the graph reflect how often countries of each regime type have nuclear weapons across all observed years. Democratic countries show a higher proportion of weapons, sitting at 8%, compared to autocratic countries which are at 4%. Therefore, democratic regimes are about twice as likely as autocracies to pursue or possess nuclear weapons.</p>
 <p>Note: Only 749 out of almost 21,000 countries have nuclear weapons, making the sample extremely low. Most countries never pursue nuclear weapons during most years.</p>
 <h4 id="figure-b-time-trend-plot">Figure B Time Trend Plot</h4>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="index_files/figure-html5/print-code-8-1.png" alt="" width="624" /></p>
-</div>
 <p>This visualization shows that democratic countries had a higher proportion of nuclear weapon programs from the 1940s to the 1960s where the proportion sits at nearly 20%. Because the data is structured by country-year, this means that about 20% of democratic country-year observations (or 1 in 5 democratic countries in a given year ) were pursuing or possessing nuclear weapons during this period. This pattern reflects the early nuclear development of countries such as the U.S., U.K., and France during and immediately after WWII.</p>
 <p>This gap has changed however. From the 1970s onward, the proportion of democratic countries pursuing or possessing nuclear weapons slowed down, whereas authoritarian regimes steadily increased pursuit or possession. By the 1990s and 2000s, the two regime types overlap, and in some years following authoritarian regimes actually overcome democracies in nuclear possession or pursuit. This is likely due to the end of the Cold War where democracies stopped expanding and autocracies felt the need to now rely on deterrence including North Korea, Pakistan, and Iran.</p>
 <p>Although democracies were historically more likely to develop nuclear weapons and may possess more today, autocracies have become more active in the nuclear-sphere. Therefore my initial interpretation is slightly incorrect. The reason why democracies appear more likely to possess or pursue nuclear weapons is driven by historical cases rather than a consistent pattern drawn into contemporary politics. The relationship between regime type and nuclear weapons program is not balanced and seems to depend more on time period.</p>
 <h4 id="figure-c-nuclear-weapon-and-country-trajectory">Figure C Nuclear Weapon and Country Trajectory</h4>
 <p>The next two visualizations</p>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="index_files/figure-html5/print-code-9-1.png" alt="" width="624" /></p>
-</div>
 <p>For this visualization, I picked three democracies that have nuclear weapons and two democracies (Germany and Japan) that could pursue a nuclear program but has not. Conversely, I chose five authoritarian countries. Russia, China, and North Korea all have a nuclear program; however, I picked Iran and Iraq because both of which have pursued or actively are pursuing a nuclear program more recently. Very early, the U.S., U.K., France, and Russia reached 3, or possession. China, North Korea, Iran, and Iraq show later nuclear trajectories in more of a contemporary era.</p>
 <p>Germany is especially interesting because after WWII the country went through a process of demilitarization and NATO dependence. Additionally, after the Fukushima 2011 nuclear meltdown disaster in Japan, their Chancellor Angela Merkel mandated a nuclear phase-out contributing to wary behind nuclear technology. Moreover, Argentina is very interesting since they considered pursuing nuclear weapons but stopped in the 1980s and 1990s due to a return to democracy and desire to create stability with Brazil. This shows how potentially having a nuclear weapons program can be seen as unstable and negative, another reason why democracies may be pursuing less weapons today while authoritarian countries feel the need to have them with less alliances.</p>
 <p>Overall, pursuing nuclear weapons is not only regime type, or historical time period, but also political transitions or security incentives.</p>
 <p>Note: Reminder I’ve turned my data into binary variables where countries with values of 2 or higher are liberal democracies and are coded as 1, and autocracies are coded with values of 1 or lower as 0. My outcome variable, whether a country is pursuing a nuclear weapons program in a given yearm is measured where 0 = not considering; 1 = considering; 2 = pursuing; 3 = possessing.</p>
 <p>Let’s take India and Pakistan for example.</p>
 <h4 id="figure-d-india-and-pakistan-case">Figure D India and Pakistan Case</h4>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="index_files/figure-html5/print-code-10-1.png" alt="" width="624" /></p>
-</div>
 <p>India and Pakistan’s nuclear arsenals were compiled much less because of regime type, but primarily because of regional competition. India’s early pursuit was shaped by China’s rise after the 1962 Sino-Indian War while Pakistan’s accelerated in response to military humiliation like the 1971 war and border disputes with India. This shows the complexity behind the causal relationship between the outcome and explanatory variable.</p>
 <h2 id="regression-analysis">Regression Analysis</h2>
 <h4 id="null-hypothesis">Null hypothesis:</h4>
@@ -1742,55 +1583,117 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h4 id="alternative-hypothesis">Alternative hypothesis:</h4>
 <p>The coefficient on regime type of not equal to zero, meaning there is a relationship between regime type and the likelihood of pursuing or possessing nuclear weapons.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>                   2.5 %     97.5 %
-(Intercept)   0.03462212 0.04310466
-regime_binary 0.03167856 0.04704663</code></pre>
-<pre><code>
-Call:
-lm(formula = nuclear_program ~ regime_binary, data = combine_data)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--0.07823 -0.07823 -0.03886 -0.03886  0.96114 
-
-Coefficients:
-              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   0.038863   0.002164   17.96   &lt;2e-16 ***
-regime_binary 0.039363   0.003920   10.04   &lt;2e-16 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.219 on 14726 degrees of freedom
-Multiple R-squared:  0.0068,    Adjusted R-squared:  0.006733 
-F-statistic: 100.8 on 1 and 14726 DF,  p-value: &lt; 2.2e-16</code></pre>
-<table>
-<caption><span id="tab:print-code-11">Table 1: </span>Linear Regression: Effect of Regime Type on Nuclear Programs</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">Estimate</th>
-<th style="text-align: right;">Std. Error</th>
-<th style="text-align: right;">t value</th>
-<th style="text-align: right;">p-value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">0.039</td>
-<td style="text-align: right;">0.002</td>
-<td style="text-align: right;">17.961</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">regime_binary</td>
-<td style="text-align: right;">0.039</td>
-<td style="text-align: right;">0.004</td>
-<td style="text-align: right;">10.041</td>
-<td style="text-align: right;">0</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span><span class='va'>nuclear_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"Data/country-position-nuclear-weapons.csv"</span>, show_col_types <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>nuclear_status <span class='op'>=</span> <span class='va'>status</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    nuclear_program <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>nuclear_status</span> <span class='op'>&gt;=</span> <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>nuclear_data</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>nuclear_data</span></span>
+<span></span>
+<span></span>
+<span><span class='va'>freedom_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"Data/political-regime.csv"</span><span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>freedom_data</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>freedom_data</span></span>
+<span><span class='va'>freedom_data</span> <span class='op'>&lt;-</span> <span class='va'>freedom_data</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>regime <span class='op'>=</span> <span class='va'>regime_row_owid</span><span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span><span class='va'>freedom_data</span> <span class='op'>&lt;-</span> <span class='va'>freedom_data</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    regime_binary <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span></span>
+<span>      <span class='va'>regime</span> <span class='op'>&gt;=</span> <span class='fl'>2</span> <span class='op'>~</span> <span class='fl'>1</span>,   </span>
+<span>      <span class='va'>regime</span> <span class='op'>&lt;=</span> <span class='fl'>1</span> <span class='op'>~</span> <span class='fl'>0</span>    </span>
+<span>    <span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>nuclear_data</span> <span class='op'>&lt;-</span> <span class='va'>nuclear_data</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    nuclear_program <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>nuclear_status</span> <span class='op'>&gt;=</span> <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='va'>combine_data</span> <span class='op'>&lt;-</span> <span class='va'>freedom_data</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>inner_join</a></span><span class='op'>(</span><span class='va'>nuclear_data</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"code"</span>, <span class='st'>"year"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>plot_data</span> <span class='op'>&lt;-</span> <span class='va'>combine_data</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>regime_binary</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span></span>
+<span>    prop_nuclear <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>nuclear_program</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>plot_data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>regime_binary</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='va'>prop_nuclear</span>, fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>regime_binary</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>width <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>prop_nuclear</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>, vjust <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Authoritarian"</span>, <span class='st'>"Democracy"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"0"</span> <span class='op'>=</span> <span class='st'>"indianred1"</span>, <span class='st'>"1"</span> <span class='op'>=</span> <span class='st'>"steelblue1"</span><span class='op'>)</span>,</span>
+<span>    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Autocracy"</span>, <span class='st'>"Democracy"</span><span class='op'>)</span>,</span>
+<span>    name <span class='op'>=</span> <span class='st'>"Regime Type"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    title <span class='op'>=</span> <span class='st'>"Democracies vs Authoritarian nuclear weapons"</span>,</span>
+<span>    subtitle <span class='op'>=</span> <span class='st'>"Proportion of country-years pursuing or possessing nuclear weapons"</span>,</span>
+<span>    x <span class='op'>=</span> <span class='st'>"Regime Type"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Proportion"</span></span>
+<span>  <span class='op'>)</span> </span>
+<span><span class='va'>overtime_data</span> <span class='op'>&lt;-</span> <span class='va'>combine_data</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>regime_binary</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span></span>
+<span>    prop_nuclear <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>nuclear_program</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>overtime_data</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span>, y <span class='op'>=</span> <span class='va'>prop_nuclear</span>, color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>regime_binary</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span><span class='op'>(</span></span>
+<span>    values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"0"</span> <span class='op'>=</span> <span class='st'>"indianred1"</span>, <span class='st'>"1"</span> <span class='op'>=</span> <span class='st'>"steelblue1"</span><span class='op'>)</span>,</span>
+<span>    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Autocracy"</span>, <span class='st'>"Democracy"</span><span class='op'>)</span>, name <span class='op'>=</span> <span class='st'>"Regime Type"</span> <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    title <span class='op'>=</span> <span class='st'>"Nuclear weapons pursuit over Time by regime type"</span>,</span>
+<span>    x <span class='op'>=</span> <span class='st'>"Year"</span>,y <span class='op'>=</span> <span class='st'>"Proportion Pursuing/Possessing"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>selected_countries</span> <span class='op'>&lt;-</span> <span class='va'>combine_data</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>entity.x</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"China"</span>, <span class='st'>"Iran"</span>, <span class='st'>"North Korea"</span>, <span class='st'>"United States"</span>,<span class='st'>"Russia"</span>,<span class='st'>"Iraq"</span>,<span class='st'>"Germany"</span>,<span class='st'>"United Kingdom"</span>, <span class='st'>"France"</span>, <span class='st'>"Argentina"</span></span>
+<span>  <span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>selected_countries</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span>, y <span class='op'>=</span> <span class='va'>nuclear_status</span>, color <span class='op'>=</span> <span class='va'>entity.x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    title <span class='op'>=</span> <span class='st'>"Nuclear Weapons Trajectories by Country"</span>,</span>
+<span>    subtitle <span class='op'>=</span> <span class='st'>"(0 = none, 3 = possession)"</span>,</span>
+<span>    x <span class='op'>=</span> <span class='st'>"Year"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Nuclear Status"</span>,</span>
+<span>    color <span class='op'>=</span> <span class='st'>"Country"</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='va'>selected_countries</span> <span class='op'>&lt;-</span> <span class='va'>combine_data</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>entity.x</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"India"</span>, <span class='st'>"Pakistan"</span></span>
+<span>  <span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>selected_countries</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span>, y <span class='op'>=</span> <span class='va'>nuclear_status</span>, color <span class='op'>=</span> <span class='va'>entity.x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    title <span class='op'>=</span> <span class='st'>"Nuclear Weapons Trajectories by Country"</span>,</span>
+<span>    subtitle <span class='op'>=</span> <span class='st'>"(0 = none, 3 = possession)"</span>,</span>
+<span>    x <span class='op'>=</span> <span class='st'>"Year"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Nuclear Status"</span>,</span>
+<span>    color <span class='op'>=</span> <span class='st'>"Country"</span></span>
+<span>  <span class='op'>)</span></span>
+<span><span class='va'>model1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>nuclear_program</span> <span class='op'>~</span> <span class='va'>regime_binary</span>, data <span class='op'>=</span> <span class='va'>combine_data</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span><span class='op'>(</span><span class='va'>model1</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>model1</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>model1</span><span class='op'>)</span><span class='op'>$</span><span class='va'>coefficients</span>, <span class='fl'>3</span><span class='op'>)</span>,</span>
+<span>      col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Estimate"</span>, <span class='st'>"Std. Error"</span>, <span class='st'>"t value"</span>, <span class='st'>"p-value"</span><span class='op'>)</span>,</span>
+<span>      caption <span class='op'>=</span> <span class='st'>"Linear Regression: Effect of Regime Type on Nuclear Programs"</span><span class='op'>)</span></span></code></pre>
+</div>
 </div>
 <h4 id="intercept-coefficient-p-value-r-sqaured">Intercept, Coefficient, P-Value, R sqaured</h4>
 <p>The regression results estimate the relationship between regime type the likelihood of pursuing or possessing nuclear weapons. The intercept is about 0.039 which shows that autocratic countries have about a 3.9% probability of having a nuclear weapons program.</p>
@@ -1807,7 +1710,7 @@ The R-squared value os 0.0068 shows that regime type alone only explains a small
 <p>Lastly, existing nuclear powers may no longer want to expand their arsenals at this time due to the Threat on the Non-Proliferation of Nuclear Weapons (NPT), mutual assured destruction, moratoriums, or other threats such as UN sanctions. Both the U.S. and Russia maintain large nuclear stockpiles but are constrained by the NPT and global deterrence structures. This stagnation among nuclear club powers may make newer nuclear pursuits by emerging authoritarian states such as Iran more important than aggregate possession rates alone.</p>
 <p>AI DISCLAIMER:</p>
 <p>For figure C, I used artificial intelligence to help design the ggplot, specifically helping me set up the entity.x variable and figuring out way to organize colors. Both datasets had a country-name column called “entity” and I joined them together. Entity.X is the country name from freedom_data or the left side of join.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
