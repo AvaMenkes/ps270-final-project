@@ -38,13 +38,13 @@ A pattern in the data that would support my hypothesis would be if autocratic co
 
 ## Data 
 
-```{r}
+```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
 library(readr)
 library(dplyr)
 library(tidyverse)
 ```
 
-```{r, message = F, warning = F}
+```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
 nuclear_data <- read_csv("Data/country-position-nuclear-weapons.csv", show_col_types = FALSE) |>
   rename(nuclear_status = status) |>
   mutate(
@@ -55,7 +55,7 @@ nuclear_data
 
 ```
 
-```{r, message = F, warning = F}
+```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
 
 freedom_data <- read_csv("Data/political-regime.csv")
 
@@ -68,14 +68,14 @@ freedom_data
 
 #### Data cleaning 
 
-```{r}
+```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
 freedom_data <- freedom_data |>
   rename(regime = regime_row_owid)
 
 
 ```
 
-```{r}
+```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
 freedom_data <- freedom_data |>
   mutate(
     regime_binary = case_when(
@@ -89,7 +89,7 @@ nuclear_data <- nuclear_data |>
   )
 ```
 
-```{r}
+```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
 combine_data <- freedom_data |>
   inner_join(nuclear_data, by = c("code", "year"))
 
@@ -99,7 +99,7 @@ combine_data <- freedom_data |>
 
 #### Figure A Bar Plot 
 
-```{r}
+```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
 plot_data <- combine_data |>
   group_by(regime_binary) |>
   summarize(
@@ -134,7 +134,7 @@ Note: Only 749 out of almost 21,000 countries have nuclear weapons, making the s
 
 #### Figure B Time Trend Plot
 
-```{r}
+```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
 overtime_data <- combine_data |>
   group_by(year, regime_binary) |>
   summarize(
@@ -162,7 +162,7 @@ Although democracies were historically more likely to develop nuclear weapons an
 
 The next two visualizations 
 
-```{r}
+```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
 selected_countries <- combine_data |>
   filter(entity.x %in% c(
     "China", "Iran", "North Korea", "United States","Russia","Iraq","Germany","United Kingdom", "France", "Argentina"
@@ -189,7 +189,7 @@ Let's take India and Pakistan for example.
 
 #### Figure D India and Pakistan Case
 
-```{r}
+```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
 selected_countries <- combine_data |>
   filter(entity.x %in% c(
     "India", "Pakistan"
@@ -220,7 +220,7 @@ The coefficient on regime type of not equal to zero, meaning there is a relation
 
 
 
-```{r}
+```{r print-code, re.label=knitr::all_labels(), echo = TRUE, eval=FALSE}
 model1 <- lm(nuclear_program ~ regime_binary, data = combine_data)
 confint(model1)
 summary(model1)
@@ -247,7 +247,7 @@ Democratic countries are only slightly more likely than authoritarian regimes to
 
 #### Can we interpret this relationship as causal?
 
-No, this relationship should not be interpreted as causal because this test relies on observational cross-sectional country-year data. There are other confounding factors such as regional rivalries, for instance between India and Pakistan, alliances like NATO, economic development, or historical periods that could influence both regime types and nuclear weapons behavior. This means I cannot say with certainty regime type itself directly causes countries to pursue nuclear weapons even if regime type is correlated with nuclear weapons programs 
+No, this relationship should not be interpreted as causal because this test relies on observational cross-sectional country-year data. There are other confounding factors such as regional rivalries, for instance between India and Pakistan, alliances like NATO, economic development, or historical periods that could influence both regime types and nuclear weapons behavior. This means I cannot say with certainty regime type itself directly causes countries to pursue nuclear weapons even if regime type is correlated with nuclear weapons programs. 
 
 ## Conclusion 
 
@@ -256,6 +256,9 @@ The results provide only partial support for my original hypothesis. While autho
 This project relies on observational country-year data, the findings should not be interpreted causally, and potentially confounding variables such as military threats, alliances, and economic power remain important limitations as discussed. Future research could improve this analysis by incorporating additional explanatory variables and focusing more directly on historical evolution in nuclear proliferation. 
 
 Lastly, existing nuclear powers may no longer want to expand their arsenals at this time due to the Threat on the Non-Proliferation of Nuclear Weapons (NPT), mutual assured destruction, moratoriums, or other threats such as UN sanctions. Both the U.S. and Russia maintain large nuclear stockpiles but are constrained by the NPT and global deterrence structures. This stagnation among nuclear club powers may make newer nuclear pursuits by emerging authoritarian states such as Iran more important than aggregate possession rates alone. 
+
+
+
 
 AI DISCLAIMER: 
 
