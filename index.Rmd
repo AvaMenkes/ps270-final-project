@@ -20,11 +20,11 @@ Therefore my research question is:
 
 Are democratic or authoritarian regimes more likely to pursue nuclear weapons programs?
 
-# Hypothesis:
+### Hypothesis:
 
 Authoritarian countries are more likely than democratic countries to pursue nuclear weapons programs.
 
-# Variables 
+### Variables 
 
 This study uses cross-sectional time-series observational data.
 
@@ -97,7 +97,7 @@ combine_data <- freedom_data |>
 
 ## Results
 
-# Figure A Bar Plot 
+### Figure A Bar Plot 
 
 ```{r}
 plot_data <- combine_data |>
@@ -132,7 +132,7 @@ This visualization serves as a broad overview. Each observation in the data sets
 Note: Only 749 out of almost 21,000 countries have nuclear weapons, making the sample extremely low. Most countries never pursue nuclear weapons during most years. 
 
 
-# Figure B Time Trend Plot
+### Figure B Time Trend Plot
 
 ```{r}
 overtime_data <- combine_data |>
@@ -158,7 +158,7 @@ This gap has changed however. From the 1970s onward, the proportion of democrati
 
 Although democracies were historically more likely to develop nuclear weapons and may possess more today, autocracies have become more active in the nuclear-sphere. Therefore my initial interpretation is slightly incorrect. The reason why democracies appear more likely to possess or pursue nuclear weapons is driven by historical cases rather than a consistent pattern drawn into contemporary politics. The relationship between regime type and nuclear weapons program is not balanced and seems to depend more on time period. 
 
-## Figure C Nuclear Weapon and Country Trajectory 
+### Figure C Nuclear Weapon and Country Trajectory 
 
 The next two visualizations 
 
@@ -187,7 +187,7 @@ Overall, pursuing nuclear weapons is not only regime type, or historical time pe
 
 Let's take India and Pakistan for example. 
 
-## Figure D India and Pakistan Case
+### Figure D India and Pakistan Case
 
 ```{r}
 selected_countries <- combine_data |>
@@ -208,15 +208,13 @@ ggplot(selected_countries, aes(x = year, y = nuclear_status, color = entity.x)) 
 
 
 India and Pakistan's nuclear arsenals were compiled much less because of regime type, but primarily because of regional competition. India's early pursuit was shaped by China's rise after the 1962 Sino-Indian War while Pakistan's accelerated in response to military humiliation like the 1971 war and border disputes with India. This shows the complexity behind the causal relationship between the outcome and explanatory variable. 
-
-
 ## Regression Analysis
 
-#Null hypothesis:
+### Null hypothesis:
 
 The coefficient on regime type of equal to zero, meaning there is no relationship between regime type and the likelihood of pursuing or possessing nuclear weapons.
 
-#Alternative hypothesis: 
+### Alternative hypothesis: 
 
 The coefficient on regime type of not equal to zero, meaning there is a relationship between regime type and the likelihood of pursuing or possessing nuclear weapons. 
 
@@ -244,7 +242,7 @@ kable(round(summary(model1)$coefficients, 3),
 ```
 
 
-# Intercept, Coefficient, and P-Value
+### Intercept, Coefficient, and P-Value
 
 The regression results estimate the relationship between regime type the likelihood of pursuing or possessing nuclear weapons. The intercept is about 0.039 which shows that autocratic countries have about a 3.9% probability of having a nuclear weapons program.
 
@@ -257,7 +255,7 @@ The R-squared value os 0.0068 shows that regime type alone only explains a small
 
 Democratic countries are only slightly more likely than authoritarian regimes to pursue or possess nuclear weapons when averaged across all country-years.
 
-# Can we interpret this relationship as causal?
+### Can we interpret this relationship as causal?
 
 No, this relationship should not be interpreted as causal because this test relies on observational cross-sectional country-year data. There are other confounding factors such as regional rivalries, for instance between India and Pakistan, alliances like NATO, economic development, or historical periods that could influence both regime types and nuclear weapons behavior. This means I cannot say with certainty regime type itself directly causes countries to pursue nuclear weapons even if regime type is correlated with nuclear weapons programs 
 
@@ -273,4 +271,9 @@ AI DISCLAIMER:
 
 For figure C, I used artificial intelligence to help design the ggplot, specifically helping me set up the entity.x variable and figuring out way to organize colors. Both datasets had a country-name column called "entity" and I joined them together. Entity.X is the country name from freedom_data or the left side of join. 
 
-```{r print-code, ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
+```{r}
+rmarkdown::render("index.Rmd")
+```
+
+
+
