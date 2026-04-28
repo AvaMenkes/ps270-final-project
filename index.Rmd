@@ -124,6 +124,7 @@ bar <- ggplot(plot_data, aes(x = factor(regime_binary), y = prop_nuclear, fill =
   ) 
 
 ggsave("bar.png", plot = bar)
+
 ```
 
 ![Bar Plot](bar.png)
@@ -153,13 +154,17 @@ time_plot <- ggplot(overtime_data, aes(x = year, y = prop_nuclear, color = facto
     title = "Nuclear weapons pursuit over Time by regime type",
     x = "Year",y = "Proportion Pursuing/Possessing")
 
+
+ggsave("time_plot.png", plot = bar)
 ```
 
-This visualization shows that democratic countries had a higher proportion of nuclear weapon programs from the 1940s to the 1960s where the proportion sits at nearly 20%. Because the data is structured by country-year, this means that about 20% of democratic country-year observations (or 1 in 5 democratic countries in a given year ) were pursuing or possessing nuclear weapons during this period. This pattern reflects the early nuclear development of countries such as the U.S., U.K., and France during and immediately after WWII. 
+![Time Plot](time_plot.png)
 
-This gap has changed however. From the 1970s onward, the proportion of democratic countries pursuing or possessing nuclear weapons slowed down, whereas authoritarian regimes steadily increased pursuit or possession. By the 1990s and 2000s, the two regime types overlap, and in some years following authoritarian regimes actually overcome democracies in nuclear possession or pursuit. This is likely due to the end of the Cold War where democracies stopped expanding and autocracies felt the need to now rely on deterrence including North Korea, Pakistan, and Iran. 
+This visualization shows that democratic countries had a higher proportion of nuclear weapon programs from the 1940s to the 1960s where the proportion sits at nearly 20%. Because the data is structured by country-year, this means that about 20% of democratic country-year observations (or 1 in 5 democratic countries in a given year ) were pursuing or possessing nuclear weapons during this period. This pattern reflects the early nuclear development of countries such as the U.S., U.K., and France during and immediately after WWII.
 
-Although democracies were historically more likely to develop nuclear weapons and may possess more today, autocracies have become more active in the nuclear-sphere. Therefore my initial interpretation is slightly incorrect. The reason why democracies appear more likely to possess or pursue nuclear weapons is driven by historical cases rather than a consistent pattern drawn into contemporary politics. The relationship between regime type and nuclear weapons program is not balanced and seems to depend more on time period. 
+This gap has changed however. From the 1970s onward, the proportion of democratic countries pursuing or possessing nuclear weapons slowed down, whereas authoritarian regimes steadily increased pursuit or possession. By the 1990s and 2000s, the two regime types overlap, and in some years following authoritarian regimes actually overcome democracies in nuclear possession or pursuit. This is likely due to the end of the Cold War where democracies stopped expanding and autocracies felt the need to now rely on deterrence including North Korea, Pakistan, and Iran.
+
+Although democracies were historically more likely to develop nuclear weapons and may possess more today, autocracies have become more active in the nuclear-sphere. Therefore my initial interpretation is slightly incorrect. The reason why democracies appear more likely to possess or pursue nuclear weapons is driven by historical cases rather than a consistent pattern drawn into contemporary politics. The relationship between regime type and nuclear weapons program is not balanced and seems to depend more on time period.
 
 #### Figure C Nuclear Weapon and Country Trajectory 
 
@@ -183,7 +188,7 @@ weapons_trajec <- ggplot(selected_countries, aes(x = year, y = nuclear_status, c
 
 ggsave("weapons_trajec.png", plot = weapons_trajec)
 ```
-
+![Line Plot](weapons_trajec.png)
 
 For this visualization, I picked three democracies that have nuclear weapons and two democracies (Germany and Japan) that could pursue a nuclear program but has not. Conversely, I chose five authoritarian countries. Russia, China, and North Korea all have a nuclear program; however, I picked Iran and Iraq because both of which have pursued or actively are pursuing a nuclear program more recently. Very early, the U.S., U.K., France, and Russia reached 3, or possession. China, North Korea, Iran, and Iraq show later nuclear trajectories in more of a contemporary era. 
 
@@ -212,8 +217,10 @@ India_Pakistan <- ggplot(selected_countries, aes(x = year, y = nuclear_status, c
     y = "Nuclear Status",
     color = "Country"
   )
-```
 
+ggsave("India_Pakistan.png", plot = bar)
+```
+![Line Plot](India_Pakistan.png)
 
 India and Pakistan's nuclear arsenals were compiled much less because of regime type, but primarily because of regional competition. India's early pursuit was shaped by China's rise after the 1962 Sino-Indian War while Pakistan's accelerated in response to military humiliation like the 1971 war and border disputes with India. This shows the complexity behind the causal relationship between the outcome and explanatory variable. 
 
@@ -237,6 +244,7 @@ summary(model1)
 knitr::kable(round(summary(model1)$coefficients, 3),
       col.names = c("Estimate", "Std. Error", "t value", "p-value"),
       caption = "Linear Regression: Effect of Regime Type on Nuclear Programs")
+
 ```
 
 
@@ -272,5 +280,4 @@ AI DISCLAIMER:
 For figure C, I used artificial intelligence to help design the ggplot, specifically helping me set up the entity.x variable and figuring out way to organize colors. Both datasets had a country-name column called "entity" and I joined them together. Entity.X is the country name from freedom_data or the left side of join. 
 
 ```{r print-code, ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
-
 ```
