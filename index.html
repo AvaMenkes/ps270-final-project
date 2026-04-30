@@ -1546,7 +1546,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <h2 id="introduction">Introduction</h2>
 <p>Within the nuclear weapons club, precarious leaders can make some of the world’s most instantaneous defense decisions. This project examines whether authoritarian or democratic regimes are more likely to pursue nuclear weapons programs. I examine this question through also understanding whether regime type alone may be why a country pursues nuclear weapons. It is important to understand this relationship because nuclear proliferation, especially today, poses major risk internationally.</p>
-<p>In an international system where the U.S. and Russia are almost head-to-head with their nuclear stockpile, democratic nations largely possess more nuclear arsenals in the post-Cold War landscape than authoritarian regimes all together. This is shaped by decades of competition, such as the Cuban Missile Crisis, and security concerns. However, China is now on the rise, expanding its arsenal faster than any other country. Meanwhile, several countries, including South Africa and Argentina, voluntarily gave up their nuclear pursuit in the 1990s, raising the question on whether regime type may determine nuclear capabilities as mentioned above.</p>
+<p>In an international system where the U.S. and Russia are almost head-to-head with their nuclear stockpile, democratic nations largely possess more nuclear arsenals in the post-Cold War landscape than authoritarian regimes all together. This is shaped by decades of competition, such as the Cuban Missile Crisis, and ongoing security concerns. However, China is now on the rise, expanding its arsenal faster than any other country. Meanwhile, several countries, including Ukraine, South Africa, and Argentina, voluntarily gave up their nuclear pursuit in the 1990s, raising the question on whether regime type may determine nuclear capabilities as mentioned above.</p>
 <p>In general, democratic governments are more likely to be beholden to public accountability and legislative oversight, allowing more transparency, supervising and monitoring of activities the President conducts. These constraints can limit excessive military spending and raise the political cost of pursuing large nuclear arsenals. Conversely, authoritarian governments have fewer domestic constraints due to censorship (news accountability, take North Korea for example) or have a personalist dictator (Russia). A regime like this then may be able to leverage absolute military power as a means to brand nuclear determination as regime survival.</p>
 <h4 id="therefore-my-research-question-is-are-democratic-or-authoritarian-regimes-more-likely-to-pursue-nuclear-weapons-programs">Therefore my research question is: Are democratic or authoritarian regimes more likely to pursue nuclear weapons programs?</h4>
 <h2 id="data">Data</h2>
@@ -1617,20 +1617,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </tr>
 </tbody>
 </table>
-<pre><code># A tibble: 21,328 × 5
-   entity      code   year nuclear_status nuclear_program
-   &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt;          &lt;dbl&gt;           &lt;dbl&gt;
- 1 Afghanistan AFG    1938              0               0
- 2 Afghanistan AFG    1939              0               0
- 3 Afghanistan AFG    1940              0               0
- 4 Afghanistan AFG    1941              0               0
- 5 Afghanistan AFG    1942              0               0
- 6 Afghanistan AFG    1943              0               0
- 7 Afghanistan AFG    1944              0               0
- 8 Afghanistan AFG    1945              0               0
- 9 Afghanistan AFG    1946              0               0
-10 Afghanistan AFG    1947              0               0
-# ℹ 21,318 more rows</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table>
@@ -1681,20 +1667,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </tr>
 </tbody>
 </table>
-<pre><code># A tibble: 31,492 × 4
-   entity      code   year regime_row_owid
-   &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt;           &lt;dbl&gt;
- 1 Afghanistan AFG    1789               0
- 2 Afghanistan AFG    1790               0
- 3 Afghanistan AFG    1791               0
- 4 Afghanistan AFG    1792               0
- 5 Afghanistan AFG    1793               0
- 6 Afghanistan AFG    1794               0
- 7 Afghanistan AFG    1795               0
- 8 Afghanistan AFG    1796               0
- 9 Afghanistan AFG    1797               0
-10 Afghanistan AFG    1798               0
-# ℹ 31,482 more rows</code></pre>
 </div>
 <h4 id="data-cleaning">Data cleaning</h4>
 <div class="layout-chunk" data-layout="l-body">
@@ -1725,11 +1697,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <img src="time_plot.png" alt="Line Plot" />
 <figcaption aria-hidden="true">Line Plot</figcaption>
 </figure>
-<p>This visualization shows that democratic countries had a higher proportion of nuclear weapon programs from the 1940s to the 1960s where the proportion sits at nearly 20%. Because the data is structured by country-year, this means that about 20% of democratic country-year observations (or 1 in 5 democratic countries in a given year ) were pursuing or possessing nuclear weapons during this period. This pattern reflects the early nuclear development of countries such as the U.S., U.K., and France during and immediately after WWII.</p>
-<p>This gap has changed however. From the 1970s onward, the proportion of democratic countries pursuing or possessing nuclear weapons slowed down, whereas authoritarian regimes steadily increased pursuit or possession. By the 1990s and 2000s, the two regime types overlap, and in some years following authoritarian regimes actually overcome democracies in nuclear possession or pursuit. This is likely due to the end of the Cold War where democracies stopped expanding and autocracies felt the need to now rely on deterrence including North Korea, Pakistan, and Iran.</p>
-<p>Although democracies were historically more likely to develop nuclear weapons and may possess more today, autocracies have become more active in the nuclear-sphere. Therefore my initial interpretation is slightly incorrect based on this graph. The reason why democracies appear more likely to possess or pursue nuclear weapons is driven by historical cases rather than a consistent pattern drawn into contemporary politics. The relationship between regime type and nuclear weapons program is not balanced and seems to depend more on time period.</p>
+<p>This visualization shows that democratic countries had a higher proportion of nuclear weapon programs from the 1940s to the 1960s where the proportion sits at nearly 20%. The data is structured by country-year, this means that about 20% of democratic country-year observations (or 1 in 5 democratic countries in a given year) were pursuing or possessing nuclear weapons during this period. This pattern reflects the early nuclear development of countries such as the U.S., U.K., and France during and immediately after WWII (~1945) to prevent the spread of proliferation to other countries and have defense against the Soviet Union.</p>
+<p>This gap has changed however. From the 1970s onward, the proportion of democratic countries pursuing or possessing nuclear weapons slowed down, whereas authoritarian regimes steadily increased pursuit or possession. By the 1990s and 2000s, the two regime types overlap, and in some years following authoritarian regimes actually overcome democracies in nuclear possession or pursuit. This is likely due to the end of the Cold War (1947-1991) where democracies stopped expanding and autocracies felt the gradual need to rely on mutually assured deterrence including North Korea, Pakistan, and Iran.</p>
+<p>Although democracies were historically more likely to develop nuclear weapons and may possess more today, autocracies have become more active in the nuclear-sphere. Therefore my initial interpretation is slightly incorrect based on this graph. The reason why democracies appear more likely to possess or pursue nuclear weapons is driven by historical context rather than a consistent pattern drawn into contemporary politics.</p>
 <h4 id="figure-c-nuclear-weapon-and-country-trajectory">Figure C Nuclear Weapon and Country Trajectory</h4>
-<p>The next two visualizations demonstrate other motivations that factor into why a country develops nuclear weapons.</p>
+<p>Since the relationship between regime type and nuclear weapons program seems to depend more on other factors, the next two visualizations demonstrate other motivations to why a country may develop nuclear weapons.</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -1737,12 +1709,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <img src="weapons_trajec_image.png" alt="Line Plot" />
 <figcaption aria-hidden="true">Line Plot</figcaption>
 </figure>
-<p>For this visualization, I picked three democracies that have nuclear weapons (U.S., France, and the U.K.) and two democracies (Germany and Argentina) that could pursue a nuclear program but has not. Conversely, I chose three authoritarian countries that have a nuclear program (Russia, China, and North Korea) and two (Iran and Iraq) which have pursued or actively are pursuing a nuclear program more recently but have not achieved proliferation. These countries were selected to show variation in nuclear trajectories across regime types. This includes successful acquisition, abandonment, or failure despite technological capability.</p>
-<p>Very early, the U.S., U.K., France, and Russia reached status 3, or possession as discussed above. China, North Korea, Iran, and Iraq show later nuclear trajectories in more of a contemporary era. Germany is especially interesting because after WWII the country went through a process of demilitarization and NATO dependence. Now they are under the nuclear umbrella of Britian and France to deter any potential Russian aggression. Additionally, after the Fukushima 2011 nuclear meltdown disaster in Japan, their Chancellor Angela Merkel mandated a nuclear phase-out contributing to concern behind nuclear technology.</p>
-<p>Moreover, Argentina is very interesting since they considered pursuing nuclear weapons but stopped in the 1980s and 1990s due to a return to democratization and desire to create stability with their rival Brazil. This shows how potentially having a nuclear weapons program can be seen as unstable and negative, another reason why democracies may be pursuing less weapons today while authoritarian countries feel the need to have them with less alliances.</p>
-<p>Iran is a country that has been attempting to pursue a nuclear program since the 1970s. First they actually received assistance through Eisenhower’s Atom for Peace, before the U.S. became increasingly wary of Tehran wanted a nuclear weapon, thus overtime Washington has attacked their facilities and sanctioned leaders while their desire to obtain a weapon only grew. Iraq also began pursuing weapons in the 1970s but collapsed by the 1990s under the Bush administration’s Gulf War and international pressure.</p>
-<p>North Korea’s development was shaped by deterrence against the U.S. and South Korea, as well as weak alliances after the USSR collapsed in 1991, leading them to possess a weapon by 2009.</p>
-<p>These examples demonstrates how authoritarian governments under security pressure may develop weapons when regime survival is under threat. For democratic countries it was Cold War competition against the Soviets or industrial prestige. Overall, pursuing nuclear weapons is not only based on regime type or historical time period, but also political externalites.</p>
+<p>For this visualization, I picked three democracies that have nuclear weapons (U.S., France, and the U.K.) and two democracies (Germany and Argentina) that could pursue a nuclear program but has not or discontinued the pursuit. Conversely, I chose three authoritarian countries that have a nuclear program (Russia, China, and North Korea) and two (Iran and Iraq) which have pursued or actively are pursuing a nuclear program but have not achieved proliferation. These countries were selected to show variation in nuclear trajectories across regime types since both regime groups have some successful acquisition, abandonment, or failure despite technological capability.</p>
+<p>Very early, the U.S., U.K., France, and Russia reached status 3, or possession as discussed above. China, North Korea, Iran, and Iraq have later nuclear trajectories in the contemporary era. Germany is especially interesting since after WWII the country went through a process of demilitarization and NATO dependence around 1955. Now they are under the nuclear umbrella of Britain and France to deter any potential Russian aggression. Additionally, after the Fukushima 2011 nuclear meltdown disaster in Japan, their former Chancellor Angela Merkel mandated a nuclear phase-out contributing to concern behind nuclear technology.</p>
+<p>Moreover, Argentina is very compelling since they considered pursuing nuclear weapons but stopped in the 1980s and 1990s due to a process of democratization and desire to forge peaceful relations with their rival Brazil. This shows how potentially having a nuclear weapons program can be seen as unstable and internationally isolating, another reason why democracies may be pursuing less weapons today while authoritarian countries feelthe need to have them with less diplomatic alliances.</p>
+<p>Iran is a country that has been attempting to pursue a nuclear program since the 1970s under the Shah. First, the country received assistance through Eisenhower’s “Atom for Peace” program, before the U.S. became increasingly wary that Tehran wanted a nuclear weapon. Thus overtime Washington has carried out a series of CIA and overt attacks against their facilities, and sanctioned leaders. However, it’s visible in this chart that Tehran’s desire to obtain a weapon only grew due to the ambition for regime survival in the Middle East especially in light of the nuclear monopoly Israel has. Iraq also began pursuing weapons in the 1970s and had the technology capable to. This pursuit collapsed by the 1990s under the Bush administration’s Gulf War and international pressure, terminating any appetite Baghdad had a weapon for the foreseeable future.</p>
+<p>Lastly, North Korea’s development was shaped by deterrence against the U.S. and South Korea, as well as weak alliances after the USSR collapsed in 1991, leading them to possess a weapon by 2009. These examples demonstrates how authoritarian governments under security pressure may develop weapons when regime survival is under threat. For democratic countries it was Cold War competition against the Soviets or industrial/scientific prestige. Overall, pursuing nuclear weapons is not only based on regime type or historical time period, but also political confounders .</p>
 <p>Note: Reminder I’ve turned my data into binary variables where countries with values of 2 or higher are liberal democracies and are coded as 1, and autocracies are coded with values of 1 or lower as 0. My outcome variable, whether a country is pursuing a nuclear weapons program in a given year is measured where 0 = not considering; 1 = considering; 2 = pursuing; 3 = possessing.</p>
 <p>Let’s take India and Pakistan for another more specific example.</p>
 <h4 id="figure-d-india-and-pakistan-case">Figure D India and Pakistan Case</h4>
@@ -1753,7 +1724,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <img src="India_Pakistan.png" alt="Line Plot" />
 <figcaption aria-hidden="true">Line Plot</figcaption>
 </figure>
-<p>India and Pakistan’s nuclear arsenals were compiled much less because of regime type, but primarily because of regional competition. India’s early pursuit was shaped by China’s rise after the 1962 Sino-Indian War while Pakistan’s accelerated in response to military humiliation like the 1971 war, the A.Q. Khan Network, and border disputes with India. This shows the complexity behind the causal relationship between the outcome and explanatory variable, especially since regime survival is more important to observe than the regime-type itself for this case.</p>
+<p>India and Pakistan’s nuclear arsenals were compiled much less because of regime type, but primarily because of regional competition. India’s early pursuit was shaped by China’s rise after the 1962 Sino-Indian War while Pakistan’s accelerated in response to military humiliation like the 1971 war, the A.Q. Khan Network, and continual border disputes with India that sparked wars in 1965 and 1999. This shows the complexity behind the causal relationship between the outcome and explanatory variable, especially since regime survival is more important to observe than the regime-type itself for many cases.</p>
 <h2 id="regression-analysis">Regression Analysis</h2>
 <p>For my regression analysis, I am testing whether regime type is connected with the probability of a country pursuing or possessing nuclear weapons. This will allow me to evaluate the statistical link between my explanatory and outcome variable, and see if the potential confounding factors I have set the stage for above truly play a substantial role in explaining proliferation.</p>
 <h4 id="null-hypothesis">Null hypothesis:</h4>
@@ -1814,7 +1785,7 @@ F-statistic: 100.8 on 1 and 14726 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4 id="intercept">Intercept</h4>
 <p>The regression results estimate the relationship between regime type the likelihood of pursuing or possessing nuclear weapons. The intercept is about 0.039 which shows that autocratic countries have about a 3.9% predicted probability of pursuing or possessing a nuclear weapons program.</p>
 <h4 id="coefficient">Coefficient</h4>
-<p>The estimated coefficient is 0.039. This means that democratic countries are approximately 3.9 percentage points more likely to pursue or possess nuclear weapons compared to their autocratic counterparts.The coefficient also has a standard error of 0.004. This means the estimate is fairly accurate or precisee since it has a narrow margin of error.</p>
+<p>The estimated coefficient is 0.039. This means that democratic countries are approximately 3.9 percentage points more likely to pursue or possess nuclear weapons compared to their autocratic counterparts.The coefficient also has a standard error of 0.004. This means the estimate is fairly accurate or precise since it has a narrow margin of error.</p>
 <h4 id="p-value-and-substantive-effect">P-Value and Substantive Effect</h4>
 <p>This effect is statistically significant because the P-value is 0, illustrating that the relationship is highly unlikely to be due to random chance. This means the the null hypothesis is rejected and there is a relationship between regime type and nuclear weapons programs. Furthermore, the 95% confidence interval for the coefficient ranges from 3.2 to 4.7 percentage points and does not include zero, which provides more concrete evidence against the null.</p>
 <p>However, the substantive effect remains relatively small because the R-squared value is 0.0068 which indicates that regime type alone only explains less than 1% of the variation in nuclear weapons development. This means the other factors, such as regional rivalries or shift to democracies, play a bigger role.</p>
@@ -1822,9 +1793,9 @@ F-statistic: 100.8 on 1 and 14726 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4 id="can-we-interpret-this-relationship-as-causal">Can we interpret this relationship as causal?</h4>
 <p>No, this relationship should not be interpreted as causal because this test relies on observational cross-sectional country-year data. There are other confounding factors I showed through my visualizations particularly the India and Pakistan case. Alliances like NATO, economic development, sanctions, or historical periods could also influence both regime types and nuclear weapons behavior. This means I cannot say with certainty regime type itself directly causes countries to pursue nuclear weapons even if regime type is correlated with nuclear weapons programs.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>The results provide only partial support for my original hypothesis. While authoritarian regimes are not more likely than democracies to pursue nuclear weapons programs overall, the data suggests that authoritarian states have become increasingly more active in nuclear proliferation over time. Democratic countries historically dominated nuclear development, particularly during the Cold War which heavily influences the findings. Additionally, looking at specific countries, it is clear some countries may have been authoritarian while pursuing a weapon such as Argentina, but transitioned to a democracy. Or, authoritarian countries such as India or Pakistan, wanted to pursue weapons less because of their regime and more based on real wars happening at the time. What started as a project on simply regime type, as revealed that the relationship between regime type and nuclear weapons program is shaped not only by domestic political institutions by also by historical context, which cannot be omitted.</p>
-<p>As explained above, this project relies on observational country-year data, the findings should not be interpreted causally, and confounding variables discussed remain very important limitations to this research question. Future research could improve this analysis by incorporating additional explanatory variables such as GDP per capita, military expenditures, Threat on the Non-Proliferation (NPT) membership, the nuclear umbrella states, and nuclear rivalry. This would provide more depth in focusing on historical evolution in nuclear proliferation, but this project is the first step in the right direction.</p>
-<p>Lastly, existing nuclear powers may no longer want to expand their arsenals at this time due to the NPT, mutual assured destruction, moratoriums, or other threats such as UN sanctions. Both the U.S. and Russia maintain large nuclear stockpiles but are constrained by global deterrence structures even if the START treaty has ended. This stagnation among nuclear club powers may make newer nuclear pursuits by emerging authoritarian states such as Iran more important than aggregate possession rates alone.</p>
+<p>The results provide only partial support for my original hypothesis. While authoritarian regimes are not more likely than democracies to pursue nuclear weapons programs overall, the data suggests that authoritarian states have become increasingly more active in nuclear proliferation over time. Democratic countries historically dominated nuclear development, particularly before and during the Cold War which heavily influences the findings. Additionally, looking at specific countries, it is clear some countries may have been authoritarian while pursuing a weapon such as Argentina, but transitioned to a democracy. Or, authoritarian countries such as India or Pakistan, wanted to pursue weapons less because of their regime and more based on real wars happening at the time, pushing the need for security. What started as a project on simply regime type and nuclear weapon programs, as revealed that the relationship between the two is constructed not only by domestic political leadership by also by historical context, which cannot be omitted.</p>
+<p>As explained above, this project relies on observational country-year data, the findings should not be interpreted causally, and confounding variables discussed remain very important limitations to this research question. Future research could improve this analysis by incorporating additional explanatory variables such as GDP per capita, military expenditures, Threat on the Non-Proliferation (NPT) membership, the nuclear umbrella states, and nuclear rivalry. This would provide more depth in focusing on historical evolution in nuclear proliferation. Moreover, case-by-case analysis would allow for comparison at a more detailed level.</p>
+<p>Lastly, existing nuclear powers may no longer want to expand their arsenals at this time due to the NPT, mutual assured destruction, moratoriums, or other threats such as UN sanctions. Both the U.S. and Russia maintain large nuclear stockpiles but are constrained by global deterrence structures even if the START treaty has ended. This stagnation among nuclear club powers may make newer nuclear pursuits by emerging or current authoritarian states such as Iran more important than aggregate possession rates alone.</p>
 <p>AI DISCLAIMER:</p>
 <p>For figure C, I used artificial intelligence to help design the ggplot, specifically helping me set up the entity.x variable and figuring out way to organize colors. Both datasets had a country-name column called “entity” and I joined them together. Entity.X is the country name from freedom_data or the left side of join.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1838,7 +1809,6 @@ F-statistic: 100.8 on 1 and 14726 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span>    nuclear_program <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>nuclear_status</span> <span class='op'>&gt;=</span> <span class='fl'>2</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span></span>
 <span>  <span class='op'>)</span></span>
 <span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>nuclear_data</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>nuclear_data</span></span>
 <span></span>
 <span></span>
 <span><span class='va'>democracy_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"Data/political-regime.csv"</span><span class='op'>)</span></span>
@@ -1846,7 +1816,6 @@ F-statistic: 100.8 on 1 and 14726 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span></span>
 <span></span>
 <span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>democracy_data</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>democracy_data</span></span>
 <span><span class='va'>democracy_data</span> <span class='op'>&lt;-</span> <span class='va'>democracy_data</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>regime <span class='op'>=</span> <span class='va'>regime_row_owid</span><span class='op'>)</span></span>
 <span></span>
@@ -1962,7 +1931,7 @@ F-statistic: 100.8 on 1 and 14726 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span>      caption <span class='op'>=</span> <span class='st'>"Linear Regression: Effect of regime type on nuclear programs"</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
